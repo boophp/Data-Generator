@@ -48,8 +48,7 @@ function createSql($position,$number){
 
             $code = $codes[$i];
 
-            $sql = "$code\t0\t\t$time\t";
-
+            $sql = "$code\t0\t\t$time\t"; // \t 是制表符，代表字段间分隔符
             fwrite($fhandler,$sql."\r\n");
             
             $i++;
@@ -62,7 +61,9 @@ function createSql($position,$number){
 createSql("SH",180000);
 
 echo"写入成功,耗时：",microtime(true)-$t,"秒";
+// 写入成功后，在MySql 命令行执行以下命令导入数据（注意字段对应关系）：
 // LOAD DATA local INFILE 'd:/insert.sql' INTO TABLE `coupon` (`code`, `status`, `geolocation`, `create_time`, `receive_time`);
+// 数据成功导入，在MySql 命令行执行以下命令保证code字段唯一性：
 // ALTER TABLE `coupon` ADD unique(`code`);
 
 ?>
