@@ -1,2 +1,2 @@
 # Data-Generator
-php 百万级 mySql 数据和 unique 随机数 生成器
+php 百万级 MySql 数据和 Unique 随机数 生成器
